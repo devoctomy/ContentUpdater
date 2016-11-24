@@ -1,0 +1,39 @@
+﻿{
+  "Fields": [
+    {
+      "Name": "Competitor",
+      "DisplayName": "Competitor",
+      "ValueType": "System.String"
+    },
+    {
+      "Name": "Played",
+      "DisplayName": "P",
+      "ValueType": "System.Int32"
+    },
+    {
+      "Name": "Won",
+      "DisplayName": "W",
+      "ValueType": "System.Int32"
+    },
+    {
+      "Name": "Drawn",
+      "DisplayName": "D",
+      "ValueType": "System.Int32"
+    },
+    {
+      "Name": "Lost",
+      "DisplayName": "L",
+      "ValueType": "System.Int32"
+    },
+    {
+      "Name": "Legs",
+      "DisplayName": "Legs",
+      "ValueType": "System.Int32"
+    },
+    {
+      "Name": "Points",
+      "DisplayName": "Pts",
+      "ValueType": "System.Int32"
+    }
+  ]
+}
