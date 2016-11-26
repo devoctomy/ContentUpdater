@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsContentUpdater.Forms;
 using WindowsContentUpdater.IO;
 using WindowsContentUpdaterObjectLibrary;
 using WindowsContentUpdaterObjectLIbrary;
@@ -34,12 +35,20 @@ namespace WindowsContentUpdater
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
-            IOUtility.LoadDefaultAppConfig();
         }
 
         #endregion
 
+        #region public methods
+
+        public void DisplaySite(Site iSite)
+        {
+            frmSite pFrmSite = new frmSite();
+            pFrmSite.MdiParent = this;
+            pFrmSite.Show();
+        }
+
+        #endregion
 
         #region object events
 
@@ -62,7 +71,19 @@ namespace WindowsContentUpdater
                 pOFDOpenSiteConfig.Title = "Browse for Site Configuration File...";
                 if(pOFDOpenSiteConfig.ShowDialog() == DialogResult.OK)
                 {
-                    IO.IOUtility.InitAppConfig(pOFDOpenSiteConfig.FileName, true);
+                    try
+                    {
+                        Site pSitSite = IOUtility.LoadSite(pOFDOpenSiteConfig.FileName);
+                        DisplaySite(pSitSite);
+                    }
+                    catch (AppConfigParseException acpex)
+                    {
+                        MessageBox.Show(acpex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }

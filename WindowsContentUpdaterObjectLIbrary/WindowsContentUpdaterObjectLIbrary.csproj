@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
-    <Compile Include="AppConfigAmazon.cs" />
+    <Compile Include="AppConfigCredentialAmazon.cs" />
+    <Compile Include="AppConfigCredentialBase.cs" />
+    <Compile Include="AppConfigCredentials.cs" />
     <Compile Include="AppConfigInfo.cs" />
     <Compile Include="ContentBase.cs" />
     <Compile Include="ContentJSON.cs" />
@@ -81,6 +83,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="S3StorageEndpoint.cs" />
+    <Compile Include="Site.cs" />
     <Compile Include="StorageEndpointBase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,9 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Glyphs\Pictures-WF_48_black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Glyphs\Help - 01_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

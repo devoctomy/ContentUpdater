@@ -15,43 +15,37 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region rivate objects
 
-        private static AppConfig cACgCurrent;
         private AppConfigInfo cACIInfo;
-        private AppConfigAmazon cACAAmazon;
+        private AppConfigCredentials cACCCredentials;
         private JObject cJOtConfig;
 
         #endregion
 
         #region public properties
 
-        public static AppConfig Current
-        {
-            get { return (cACgCurrent); }
-        }
 
         public AppConfigInfo Info
         {
             get { return (cACIInfo); }
         }
 
-        public AppConfigAmazon Amazon
+        public AppConfigCredentials Credentials
         {
-            get { return (cACAAmazon); }
+            get { return (cACCCredentials); }
         }
 
         #endregion
 
         #region public methods
 
-        public static AppConfig InitCurrent(String iConfig)
+        public static AppConfig Parse(String iConfigJSON)
         {
             try
             {
                 AppConfig pACgParsed = new AppConfig();
-                pACgParsed.cJOtConfig = JObject.Parse(iConfig);
+                pACgParsed.cJOtConfig = JObject.Parse(iConfigJSON);
                 pACgParsed.cACIInfo = AppConfigInfo.ParseJSON(pACgParsed.cJOtConfig["Info"].Value<JObject>());
-                pACgParsed.cACAAmazon = AppConfigAmazon.ParseJSON(pACgParsed.cJOtConfig["Amazon"].Value<JObject>());
-                cACgCurrent = pACgParsed;
+                pACgParsed.cACCCredentials = AppConfigCredentials.ParseJSON(pACgParsed.cJOtConfig["Credentials"].Value<JArray>());
                 return (pACgParsed);
             }
             catch (Exception ex)

@@ -36,6 +36,7 @@
             this.flpLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpLayout.Location = new System.Drawing.Point(0, 0);
             this.flpLayout.Name = "flpLayout";
+            this.flpLayout.Padding = new System.Windows.Forms.Padding(8);
             this.flpLayout.Size = new System.Drawing.Size(593, 502);
             this.flpLayout.TabIndex = 0;
             // 

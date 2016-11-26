@@ -65,6 +65,7 @@
     <Compile Include="IO\IOUtility.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Glyphs\Login2-WF_48.png" />
     <None Include="Resources\Glyphs\Help - 01_48.png" />
     <EmbeddedResource Include="Forms\frmSite.resx">
       <DependentUpon>frmSite.cs</DependentUpon>

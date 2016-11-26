@@ -1,11 +1,16 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WindowsContentUpdaterObjectLIbrary
 {
 
-    public class AppConfigAmazon
+    public class AppConfigCredentialAmazon : AppConfigCredentialBase
     {
+
 
         #region private objects
 
@@ -30,9 +35,9 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region public methods
 
-        public static AppConfigAmazon ParseJSON(JObject iJSON)
+        public static AppConfigCredentialAmazon ParseJSON(JObject iJSON)
         {
-            AppConfigAmazon cACAAmazon = new AppConfigAmazon();
+            AppConfigCredentialAmazon cACAAmazon = new AppConfigCredentialAmazon();
             cACAAmazon.cStrAccessKeyID = iJSON["AccessKeyID"].Value<String>();
             cACAAmazon.cStrSecretAccessKey = iJSON["SecretAccessKey"].Value<String>();
             return (cACAAmazon);

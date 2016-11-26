@@ -22,17 +22,5 @@ namespace WindowsContentUpdater.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SiteConfigPath {
-            get {
-                return ((string)(this["SiteConfigPath"]));
-            }
-            set {
-                this["SiteConfigPath"] = value;
-            }
-        }
     }
 }

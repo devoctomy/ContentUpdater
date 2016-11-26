@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 namespace WindowsContentUpdaterObjectLIbrary.Controls
 {
 
+    [Serializable()]
     public partial class FlowLayoutButtonMenu : UserControl
     {
 
@@ -51,9 +52,30 @@ namespace WindowsContentUpdaterObjectLIbrary.Controls
             flpLayout.Controls.Clear();
             foreach (FlowLayoutButtonMenuButton curButton in Buttons)
             {
-                curButton.Width = Width - 32;       //Need to calculate this dynamically
                 flpLayout.Controls.Add(curButton);
             }
+            ResizeButtons();
+        }
+
+        private void ResizeButtons()
+        {
+            if(Buttons != null)
+            {
+                foreach (FlowLayoutButtonMenuButton curButton in Buttons)
+                {
+                    curButton.Width = Width - 32;
+                }
+            }
+        }
+
+        #endregion
+
+        #region base class overrides
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            ResizeButtons();
         }
 
         #endregion

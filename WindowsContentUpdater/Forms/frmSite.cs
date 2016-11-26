@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace WindowsContentUpdater.Forms
 {
+
     public partial class frmSite : Form
     {
+
+        #region constructor / destructor
+
         public frmSite()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        private void flmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

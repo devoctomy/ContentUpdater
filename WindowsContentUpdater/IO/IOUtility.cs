@@ -16,35 +16,12 @@ namespace WindowsContentUpdater.IO
 
         #region public methods
 
-        public static void LoadDefaultAppConfig()
+        public static Site LoadSite(String iFullPath)
         {
-            if (File.Exists(Properties.Settings.Default.SiteConfigPath))
-            {
-                IOUtility.InitAppConfig(Properties.Settings.Default.SiteConfigPath, false);
-            }
-        }
-
-        public static void InitAppConfig(String iFullPath,
-            Boolean iSetAsDefault)
-        {
-            try
-            {
-                String pStrSiteConfigPath = iFullPath;
-                String pStrSiteConfigJSON = File.ReadAllText(pStrSiteConfigPath);
-                AppConfig.InitCurrent(pStrSiteConfigJSON);
-                if(iSetAsDefault)
-                {
-                    Properties.Settings.Default.SiteConfigPath = pStrSiteConfigPath;
-                }
-            }
-            catch (AppConfigParseException acpex)
-            {
-                MessageBox.Show(acpex.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            String pStrSiteConfigPath = iFullPath;
+            String pStrSiteConfigJSON = File.ReadAllText(pStrSiteConfigPath);
+            Site pSitSite = Site.Parse(pStrSiteConfigJSON);
+            return (pSitSite);
         }
 
         #endregion
