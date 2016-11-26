@@ -9,8 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsContentUpdater.IO;
 using WindowsContentUpdaterObjectLibrary;
 using WindowsContentUpdaterObjectLIbrary;
+using WindowsContentUpdaterObjectLIbrary.Exceptions;
 
 namespace WindowsContentUpdater
 {
@@ -27,33 +29,46 @@ namespace WindowsContentUpdater
 
         #endregion
 
-        //private async void button1_Click(object sender, EventArgs e)
-        //{
-        //    String pStrConfig = File.ReadAllText(@"C:\Temp\contentupdater.thecrownsportsbar.creds");
-        //    AppConfig pACgConfig = AppConfig.Parse(pStrConfig);
+        #region base class overrides
 
-        //    Dictionary<String, Object> pDicArgs = new Dictionary<String, Object>();
-        //    pDicArgs.Add("RemotePath", "www.thecrownsportsbar.co.uk");
-        //    pDicArgs.Add("RemoteKey", "cu/content/test.json");
-        //    ContentJSON pCJnJSON = new ContentJSON(pDicArgs);
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
 
-        //    S3StorageEndpoint pSSEContent = new S3StorageEndpoint(pACgConfig.AccessKeyID,
-        //        pACgConfig.SecretAccessKey);
+            IOUtility.LoadDefaultAppConfig();
+        }
 
-        //    Boolean pBlnSuccess = await pSSEContent.Get<ContentJSON>(pCJnJSON);
-        //}
+        #endregion
+
 
         #region object events
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JObject pJOrFormat = JObject.Parse(File.ReadAllText(@"C:\devoctomy\GitHub\ContentUpdater\WindowsContentUpdater\bin\Debug\Assets\Templates\DartsLeague.json"));
-            ContentJSONFormat pop = ContentJSONFormat.Parse(pJOrFormat);
-
             Close();
         }
 
+        private void siteConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog pOFDOpenSiteConfig = new OpenFileDialog())
+            {
+                pOFDOpenSiteConfig.AddExtension = true;
+                pOFDOpenSiteConfig.AutoUpgradeEnabled = true;
+                pOFDOpenSiteConfig.CheckFileExists = true;
+                pOFDOpenSiteConfig.CheckPathExists = true;
+                pOFDOpenSiteConfig.Filter = "Configuration files (*.config)|*.config|All files (*.*)|*.*";
+                pOFDOpenSiteConfig.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                pOFDOpenSiteConfig.Multiselect = false;
+                pOFDOpenSiteConfig.Title = "Browse for Site Configuration File...";
+                if(pOFDOpenSiteConfig.ShowDialog() == DialogResult.OK)
+                {
+                    IO.IOUtility.InitAppConfig(pOFDOpenSiteConfig.FileName, true);
+                }
+            }
+        }
+
         #endregion
+
 
     }
 

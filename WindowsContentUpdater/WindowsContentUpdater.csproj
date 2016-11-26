@@ -50,14 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSite.Designer.cs">
+      <DependentUpon>frmSite.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO\IOUtility.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Glyphs\Help - 01_48.png" />
+    <EmbeddedResource Include="Forms\frmSite.resx">
+      <DependentUpon>frmSite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -69,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="Assets\Templates\DartsLeague.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -96,6 +108,7 @@
       <Name>WindowsContentUpdaterObjectLIbrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

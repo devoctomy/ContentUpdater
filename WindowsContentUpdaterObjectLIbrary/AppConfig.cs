@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsContentUpdaterObjectLIbrary.Exceptions;
 
 namespace WindowsContentUpdaterObjectLIbrary
 {
@@ -14,27 +15,49 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region rivate objects
 
+        private static AppConfig cACgCurrent;
+        private AppConfigInfo cACIInfo;
+        private AppConfigAmazon cACAAmazon;
         private JObject cJOtConfig;
 
         #endregion
 
         #region public properties
 
-        public String AccessKeyID { get; private set; }
+        public static AppConfig Current
+        {
+            get { return (cACgCurrent); }
+        }
 
-        public String SecretAccessKey { get; private set; }
+        public AppConfigInfo Info
+        {
+            get { return (cACIInfo); }
+        }
+
+        public AppConfigAmazon Amazon
+        {
+            get { return (cACAAmazon); }
+        }
 
         #endregion
 
         #region public methods
 
-        public static AppConfig Parse(String iConfig)
+        public static AppConfig InitCurrent(String iConfig)
         {
-            AppConfig pACgParsed = new AppConfig();
-            pACgParsed.cJOtConfig = JObject.Parse(iConfig);
-            pACgParsed.AccessKeyID = pACgParsed.cJOtConfig["AccessKeyID"].Value<String>();
-            pACgParsed.SecretAccessKey = pACgParsed.cJOtConfig["SecretAccessKey"].Value<String>();
-            return (pACgParsed);
+            try
+            {
+                AppConfig pACgParsed = new AppConfig();
+                pACgParsed.cJOtConfig = JObject.Parse(iConfig);
+                pACgParsed.cACIInfo = AppConfigInfo.ParseJSON(pACgParsed.cJOtConfig["Info"].Value<JObject>());
+                pACgParsed.cACAAmazon = AppConfigAmazon.ParseJSON(pACgParsed.cJOtConfig["Amazon"].Value<JObject>());
+                cACgCurrent = pACgParsed;
+                return (pACgParsed);
+            }
+            catch (Exception ex)
+            {
+                throw new AppConfigParseException(ex);
+            }
         }
 
         #endregion

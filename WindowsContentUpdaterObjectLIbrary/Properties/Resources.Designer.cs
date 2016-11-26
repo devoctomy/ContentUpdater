@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsContentUpdater.Properties {
+namespace WindowsContentUpdaterObjectLIbrary.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WindowsContentUpdater.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WindowsContentUpdater.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WindowsContentUpdaterObjectLIbrary.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace WindowsContentUpdater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Help___01_48 {
+        internal static System.Drawing.Bitmap Pictures_WF_48_black {
             get {
-                object obj = ResourceManager.GetObject("Help___01_48", resourceCulture);
+                object obj = ResourceManager.GetObject("Pictures_WF_48_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
