@@ -8,7 +8,16 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region private objects
 
-        private AppConfig cACgConfig;
+        private SiteConfig cSCgConfig;
+
+        #endregion
+
+        #region public properties
+
+        public SiteConfig Config
+        {
+            get { return (cSCgConfig); }
+        }
 
         #endregion
 
@@ -17,7 +26,7 @@ namespace WindowsContentUpdaterObjectLIbrary
         public static Site Parse(String iAppConfigJSON)
         {
             Site pSitSite = new Site();
-            pSitSite.cACgConfig = AppConfig.Parse(iAppConfigJSON);
+            pSitSite.cSCgConfig = SiteConfig.Parse(iAppConfigJSON);
             return (pSitSite);
         }
 

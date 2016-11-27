@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,38 +9,38 @@ using System.Threading.Tasks;
 namespace WindowsContentUpdaterObjectLIbrary
 {
 
-    public class AppConfigCredentials
+    public class SiteConfigCredentials
     {
 
         #region private objects
 
-        private Dictionary<String, AppConfigCredentialBase> cLisCredentials;
+        private ObservableCollection<SiteConfigCredentialBase> cOCnCredentials;
 
         #endregion
 
         #region public properties
 
-        public IReadOnlyDictionary<String, AppConfigCredentialBase> Credentials
+        public ObservableCollection<SiteConfigCredentialBase> Credentials
         {
-            get { return (cLisCredentials); }
+            get { return (cOCnCredentials); }
         }
 
         #endregion
 
         #region constructor / destructor
 
-        public AppConfigCredentials()
+        public SiteConfigCredentials()
         {
-            cLisCredentials = new Dictionary<String, AppConfigCredentialBase>();
+            cOCnCredentials = new ObservableCollection<SiteConfigCredentialBase>();
         }
 
         #endregion
 
         #region public methods
 
-        public static AppConfigCredentials ParseJSON(JArray iJSON)
+        public static SiteConfigCredentials ParseJSON(JArray iJSON)
         {
-            AppConfigCredentials pACCCreds = new AppConfigCredentials();
+            SiteConfigCredentials pACCCreds = new SiteConfigCredentials();
             foreach (JObject curCredential in iJSON)
             {
                 String pStrCredType = curCredential["CredentialType"].Value<String>();
@@ -47,8 +48,8 @@ namespace WindowsContentUpdaterObjectLIbrary
                 {
                     case "Amazon":
                         {
-                            AppConfigCredentialAmazon pACCAmazon = AppConfigCredentialAmazon.ParseJSON(curCredential);
-                            pACCCreds.cLisCredentials.Add(curCredential["Name"].Value<String>(), pACCAmazon);
+                            SiteConfigCredentialAmazon pACCAmazon = SiteConfigCredentialAmazon.ParseJSON(curCredential);
+                            pACCCreds.cOCnCredentials.Add(pACCAmazon);
                             break;
                         }
                     default:

@@ -43,8 +43,9 @@ namespace WindowsContentUpdater
 
         public void DisplaySite(Site iSite)
         {
-            frmSite pFrmSite = new frmSite();
+            frmSite pFrmSite = new frmSite(iSite);
             pFrmSite.MdiParent = this;
+            pFrmSite.WindowState = FormWindowState.Maximized;
             pFrmSite.Show();
         }
 

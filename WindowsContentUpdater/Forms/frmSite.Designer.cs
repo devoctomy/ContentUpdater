@@ -30,9 +30,8 @@
         {
             this.scrSite = new System.Windows.Forms.SplitContainer();
             this.flmMenu = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenu();
-            this.mbnInformation = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton();
-            this.mbnCredentials = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton();
-            this.flowLayoutButtonMenuButton1 = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton();
+            this.flbInformation = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton();
+            this.flbCredentials = new WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton();
             ((System.ComponentModel.ISupportInitialize)(this.scrSite)).BeginInit();
             this.scrSite.Panel1.SuspendLayout();
             this.scrSite.SuspendLayout();
@@ -40,7 +39,6 @@
             // 
             // scrSite
             // 
-            this.scrSite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.scrSite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scrSite.Location = new System.Drawing.Point(0, 0);
             this.scrSite.Name = "scrSite";
@@ -48,56 +46,42 @@
             // scrSite.Panel1
             // 
             this.scrSite.Panel1.Controls.Add(this.flmMenu);
-            // 
-            // scrSite.Panel2
-            // 
-            this.scrSite.Panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.scrSite.Size = new System.Drawing.Size(1196, 736);
-            this.scrSite.SplitterDistance = 416;
-            this.scrSite.SplitterWidth = 8;
+            this.scrSite.SplitterDistance = 398;
             this.scrSite.TabIndex = 0;
             // 
             // flmMenu
             // 
             this.flmMenu.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.flmMenu.Buttons.Add(this.mbnInformation);
-            this.flmMenu.Buttons.Add(this.mbnCredentials);
+            this.flmMenu.Buttons.Add(this.flbInformation);
+            this.flmMenu.Buttons.Add(this.flbCredentials);
             this.flmMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flmMenu.Location = new System.Drawing.Point(0, 0);
             this.flmMenu.Name = "flmMenu";
-            this.flmMenu.Size = new System.Drawing.Size(414, 734);
-            this.flmMenu.TabIndex = 0;
-            this.flmMenu.Load += new System.EventHandler(this.flmMenu_Load);
+            this.flmMenu.Size = new System.Drawing.Size(398, 736);
+            this.flmMenu.TabIndex = 2;
             // 
-            // mbnInformation
+            // flbInformation
             // 
-            this.mbnInformation.BackColor = System.Drawing.SystemColors.Control;
-            this.mbnInformation.ButtonImage = global::WindowsContentUpdater.Properties.Resources.Help___01_48;
-            this.mbnInformation.ButtonText = "Information";
-            this.mbnInformation.Location = new System.Drawing.Point(11, 11);
-            this.mbnInformation.Name = "mbnInformation";
-            this.mbnInformation.Size = new System.Drawing.Size(382, 108);
-            this.mbnInformation.TabIndex = 0;
+            this.flbInformation.BackColor = System.Drawing.SystemColors.Control;
+            this.flbInformation.ButtonImage = global::WindowsContentUpdater.Properties.Resources.Help___01_48;
+            this.flbInformation.ButtonText = "Information";
+            this.flbInformation.Location = new System.Drawing.Point(11, 11);
+            this.flbInformation.Name = "flbInformation";
+            this.flbInformation.Size = new System.Drawing.Size(366, 108);
+            this.flbInformation.TabIndex = 0;
+            this.flbInformation.ButtonClicked += new System.EventHandler<System.EventArgs>(this.flbInformation_ButtonClicked);
             // 
-            // mbnCredentials
+            // flbCredentials
             // 
-            this.mbnCredentials.BackColor = System.Drawing.SystemColors.Control;
-            this.mbnCredentials.ButtonImage = global::WindowsContentUpdater.Properties.Resources.Login2_WF_48;
-            this.mbnCredentials.ButtonText = "Credentials";
-            this.mbnCredentials.Location = new System.Drawing.Point(11, 125);
-            this.mbnCredentials.Name = "mbnCredentials";
-            this.mbnCredentials.Size = new System.Drawing.Size(382, 108);
-            this.mbnCredentials.TabIndex = 1;
-            // 
-            // flowLayoutButtonMenuButton1
-            // 
-            this.flowLayoutButtonMenuButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutButtonMenuButton1.ButtonImage = global::WindowsContentUpdater.Properties.Resources.Help___01_48;
-            this.flowLayoutButtonMenuButton1.ButtonText = "Information";
-            this.flowLayoutButtonMenuButton1.Location = new System.Drawing.Point(11, 11);
-            this.flowLayoutButtonMenuButton1.Name = "flowLayoutButtonMenuButton1";
-            this.flowLayoutButtonMenuButton1.Size = new System.Drawing.Size(382, 108);
-            this.flowLayoutButtonMenuButton1.TabIndex = 0;
+            this.flbCredentials.BackColor = System.Drawing.SystemColors.Control;
+            this.flbCredentials.ButtonImage = global::WindowsContentUpdater.Properties.Resources.Login2_WF_48;
+            this.flbCredentials.ButtonText = "Credentials";
+            this.flbCredentials.Location = new System.Drawing.Point(11, 125);
+            this.flbCredentials.Name = "flbCredentials";
+            this.flbCredentials.Size = new System.Drawing.Size(366, 108);
+            this.flbCredentials.TabIndex = 1;
+            this.flbCredentials.ButtonClicked += new System.EventHandler<System.EventArgs>(this.flbCredentials_ButtonClicked);
             // 
             // frmSite
             // 
@@ -118,8 +102,7 @@
 
         private System.Windows.Forms.SplitContainer scrSite;
         private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenu flmMenu;
-        private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton mbnInformation;
-        private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton mbnCredentials;
-        private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton flowLayoutButtonMenuButton1;
+        private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton flbInformation;
+        private WindowsContentUpdaterObjectLIbrary.Controls.FlowLayoutButtonMenuButton flbCredentials;
     }
 }

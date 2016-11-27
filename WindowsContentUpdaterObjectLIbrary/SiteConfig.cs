@@ -10,13 +10,13 @@ using WindowsContentUpdaterObjectLIbrary.Exceptions;
 namespace WindowsContentUpdaterObjectLIbrary
 {
 
-    public class AppConfig
+    public class SiteConfig
     {
 
         #region rivate objects
 
-        private AppConfigInfo cACIInfo;
-        private AppConfigCredentials cACCCredentials;
+        private SiteConfigInfo cACIInfo;
+        private SiteConfigCredentials cACCCredentials;
         private JObject cJOtConfig;
 
         #endregion
@@ -24,12 +24,12 @@ namespace WindowsContentUpdaterObjectLIbrary
         #region public properties
 
 
-        public AppConfigInfo Info
+        public SiteConfigInfo Info
         {
             get { return (cACIInfo); }
         }
 
-        public AppConfigCredentials Credentials
+        public SiteConfigCredentials Credentials
         {
             get { return (cACCCredentials); }
         }
@@ -38,14 +38,14 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region public methods
 
-        public static AppConfig Parse(String iConfigJSON)
+        public static SiteConfig Parse(String iConfigJSON)
         {
             try
             {
-                AppConfig pACgParsed = new AppConfig();
+                SiteConfig pACgParsed = new SiteConfig();
                 pACgParsed.cJOtConfig = JObject.Parse(iConfigJSON);
-                pACgParsed.cACIInfo = AppConfigInfo.ParseJSON(pACgParsed.cJOtConfig["Info"].Value<JObject>());
-                pACgParsed.cACCCredentials = AppConfigCredentials.ParseJSON(pACgParsed.cJOtConfig["Credentials"].Value<JArray>());
+                pACgParsed.cACIInfo = SiteConfigInfo.ParseJSON(pACgParsed.cJOtConfig["Info"].Value<JObject>());
+                pACgParsed.cACCCredentials = SiteConfigCredentials.ParseJSON(pACgParsed.cJOtConfig["Credentials"].Value<JArray>());
                 return (pACgParsed);
             }
             catch (Exception ex)

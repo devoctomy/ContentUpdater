@@ -45,6 +45,7 @@
             this.butButton.Text = "{ButtonText}";
             this.butButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butButton.UseVisualStyleBackColor = true;
+            this.butButton.Click += new System.EventHandler(this.butButton_Click);
             // 
             // FlowLayoutButtonMenuButton
             // 

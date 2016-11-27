@@ -54,11 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfig.cs" />
-    <Compile Include="AppConfigCredentialAmazon.cs" />
-    <Compile Include="AppConfigCredentialBase.cs" />
-    <Compile Include="AppConfigCredentials.cs" />
-    <Compile Include="AppConfigInfo.cs" />
+    <Compile Include="SiteConfig.cs" />
+    <Compile Include="SiteConfigCredentialAmazon.cs" />
+    <Compile Include="SiteConfigCredentialBase.cs" />
+    <Compile Include="SiteConfigCredentials.cs" />
+    <Compile Include="SiteConfigInfo.cs" />
     <Compile Include="ContentBase.cs" />
     <Compile Include="ContentJSON.cs" />
     <Compile Include="ContentJSONFormat.cs" />

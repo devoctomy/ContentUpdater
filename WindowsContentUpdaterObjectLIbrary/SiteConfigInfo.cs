@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WindowsContentUpdaterObjectLIbrary
 {
 
-   public class AppConfigInfo
+   public class SiteConfigInfo
     {
 
         #region private objects
@@ -28,9 +28,9 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #region public methods
 
-        public static AppConfigInfo ParseJSON(JObject iJSON)
+        public static SiteConfigInfo ParseJSON(JObject iJSON)
         {
-            AppConfigInfo cACIInfo = new AppConfigInfo();
+            SiteConfigInfo cACIInfo = new SiteConfigInfo();
             cACIInfo.cStrTitle = iJSON["Title"].Value<String>();
             return (cACIInfo);
         }

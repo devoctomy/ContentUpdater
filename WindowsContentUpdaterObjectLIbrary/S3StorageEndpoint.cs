@@ -53,6 +53,7 @@ namespace WindowsContentUpdaterObjectLibrary
 
         public override async Task Put()
         {
+            await Task.Delay(0);        //Put simply to remove compiler warning
         }
 
         #endregion

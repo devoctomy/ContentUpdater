@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WindowsContentUpdaterObjectLIbrary
 {
 
-    public class AppConfigCredentialAmazon : AppConfigCredentialBase
+    public class SiteConfigCredentialAmazon : SiteConfigCredentialBase
     {
 
 
@@ -33,11 +33,19 @@ namespace WindowsContentUpdaterObjectLIbrary
 
         #endregion
 
+        #region constructor / destructor
+
+        public SiteConfigCredentialAmazon(String iName) :
+            base(iName)
+        { }
+
+        #endregion
+
         #region public methods
 
-        public static AppConfigCredentialAmazon ParseJSON(JObject iJSON)
+        public static SiteConfigCredentialAmazon ParseJSON(JObject iJSON)
         {
-            AppConfigCredentialAmazon cACAAmazon = new AppConfigCredentialAmazon();
+            SiteConfigCredentialAmazon cACAAmazon = new SiteConfigCredentialAmazon(iJSON["Name"].Value<String>());
             cACAAmazon.cStrAccessKeyID = iJSON["AccessKeyID"].Value<String>();
             cACAAmazon.cStrSecretAccessKey = iJSON["SecretAccessKey"].Value<String>();
             return (cACAAmazon);

@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Controls\SiteCredentials.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Controls\SiteCredentials.Designer.cs">
+      <DependentUpon>SiteCredentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\SiteInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Controls\SiteInformation.Designer.cs">
+      <DependentUpon>SiteInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Resources\Glyphs\Login2-WF_48.png" />
     <None Include="Resources\Glyphs\Help - 01_48.png" />
+    <EmbeddedResource Include="Forms\Controls\SiteCredentials.resx">
+      <DependentUpon>SiteCredentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Controls\SiteInformation.resx">
+      <DependentUpon>SiteInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSite.resx">
       <DependentUpon>frmSite.cs</DependentUpon>
     </EmbeddedResource>
